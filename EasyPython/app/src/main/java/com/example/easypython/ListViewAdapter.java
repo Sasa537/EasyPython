@@ -10,13 +10,14 @@ import androidx.annotation.NonNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.ArrayList;
+import java.util.List;
 
-public class ListViewAdapter extends ArrayAdapter< JSONObject> {
+public class ListViewAdapter extends ArrayAdapter< Articles> {
     int listLayout;
-    ArrayList< JSONObject> articleList;
+    List<Articles> articleList;
     Context context;
 
-    public ListViewAdapter(Context context, int listLayout , int field, ArrayList< JSONObject> articleList) {
+    public ListViewAdapter(Context context, int listLayout , int field, List<Articles> articleList) {
 
         super(context, listLayout, field, articleList);
         this.context = context;
@@ -34,13 +35,12 @@ public class ListViewAdapter extends ArrayAdapter< JSONObject> {
         TextView date = listViewItem.findViewById(R.id.textViewDate);
 
 
-        try{
-            title.setText(articleList.get(position).getString("title"));
-            preview.setText(articleList.get(position).getString("preview"));
-            date.setText(articleList.get(position).getString("date"));
-        }catch (JSONException je){
-            je.printStackTrace();
-        }
+
+            title.setText(articleList.get(position).getTitle());
+            preview.setText(articleList.get(position).getPreview());
+            date.setText(articleList.get(position).getDate());
+
+
         return listViewItem;
     }
 

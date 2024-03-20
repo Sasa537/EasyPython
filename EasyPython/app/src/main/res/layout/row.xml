@@ -3,12 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="#2c2c2c"
     android:padding="16dp">
 
     <TextView
         android:id="@+id/textViewTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#2c2c2c"
+        android:textColor="#fff"
         android:text="Title"
         android:textSize="20sp" />
 
@@ -16,12 +19,18 @@
         android:id="@+id/textViewPreView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:background="#2c2c2c"
+        android:textColor="#fff"
         android:text="PreView"
         android:textSize="20sp" />
     <TextView
         android:id="@+id/textViewDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:background="#2c2c2c"
+        android:textColor="#fff"
         android:text="Date"
         android:textSize="20sp" />
 
