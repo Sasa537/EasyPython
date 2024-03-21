@@ -42,6 +42,7 @@ public class ListViewAdapter extends ArrayAdapter< Articles> {
 
 
         return listViewItem;
+
     }
 
 }
