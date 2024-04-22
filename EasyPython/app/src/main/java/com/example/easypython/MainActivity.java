@@ -4,11 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -42,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         articles = new ArrayList<>();
         extractArticle();
+
     }
 
     private void extractArticle() {
@@ -52,15 +57,12 @@ public class MainActivity extends AppCompatActivity {
                 for (int i = 0; i < response.length(); i++) {
                     try {
                         JSONObject articleObject = response.getJSONObject(i);
-
                         Articles post = new Articles();
                         post.setTitle(articleObject.getString("title").toString());
                         post.setPreview(articleObject.getString("preview".toString()));
                         post.setFull_text(articleObject.getString("full_text"));
                         post.setDate(articleObject.getString("date"));
                         articles.add(post);
-                         String[] array = new String[5];
-
 
 
                     } catch (JSONException e) {
@@ -71,7 +73,8 @@ public class MainActivity extends AppCompatActivity {
                 listView.setAdapter(adapter);
 
 
-                Log.d("NewsChannel", "Важная новость: сообщение для отладки! " + articles.size() + " "+ articles.toString());
+               // Log.d("NewsChannel", "Важная новость: сообщение для отладки! " + articles.size() + " "+ articles.toString());
+
             }
         }, new Response.ErrorListener() {
             @Override
@@ -82,5 +85,14 @@ public class MainActivity extends AppCompatActivity {
 
         queue.add(jsonArrayRequest);
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+               // Toast.makeText(getApplicationContext(), "Данный функционал находиться в разработке!!!!!!!!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(),InfoActivity.class);
+                startActivity(intent);
+            }
+        });
     }
+
 }
