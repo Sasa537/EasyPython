@@ -88,8 +88,10 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-               // Toast.makeText(getApplicationContext(), "Данный функционал находиться в разработке!!!!!!!!", Toast.LENGTH_SHORT).show();
+                String full_text = articles.get(position).getFull_text();
+                //Toast.makeText(getApplicationContext(), full_text, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(),InfoActivity.class);
+                intent.putExtra("full_text",full_text);
                 startActivity(intent);
             }
         });

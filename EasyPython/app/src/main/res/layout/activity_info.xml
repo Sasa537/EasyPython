@@ -5,12 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".InfoActivity">
+    <ScrollView
+        android:id="@+id/SCROLLER_ID"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:background="#2c2c2c"
+        android:fillViewport="true">
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="339dp"
-        android:layout_height="38dp"
-        android:text="Экран второго уровня"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="36dp" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars = "vertical"
+        android:background="#2c2c2c"
+        android:text="TextView"
+        android:textColor="#fff"
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="-4dp" />
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
